@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="rating-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <title>Rating</title>
+</head>
+<body>
+    <div class="container">        
+        <form id="rating-form" class="rating-container">
+            <a href="register.html" class="back-link">&lt; Back to Register</a>
+            <h1>Rate your preferences</h1>
+            <h3>Rate how much you liked going to these places. If never gone to, leave rating blank.</h3>
+            <div class="rating-item">                
+                <div class="rating-label">Historical Sites</div>
+                <div class="rating-options">
+                    <label><input type="radio" name="historical-sites" value="1"> 1</label>
+                    <label><input type="radio" name="historical-sites" value="2"> 2</label>
+                    <label><input type="radio" name="historical-sites" value="3"> 3</label>
+                    <label><input type="radio" name="historical-sites" value="4"> 4</label>
+                    <label><input type="radio" name="historical-sites" value="5"> 5</label>
+                    <!-- <label><input type="radio" name="historical-sites" value="0"> No Rating</label> -->
+                </div>
+            </div>
+            <div class="rating-item">
+                <div class="rating-label">Beaches and Islands</div>
+                <div class="rating-options">
+                    <label><input type="radio" name="beaches-islands" value="1"> 1</label>
+                    <label><input type="radio" name="beaches-islands" value="2"> 2</label>
+                    <label><input type="radio" name="beaches-islands" value="3"> 3</label>
+                    <label><input type="radio" name="beaches-islands" value="4"> 4</label>
+                    <label><input type="radio" name="beaches-islands" value="5"> 5</label>
+                    <!-- <label><input type="radio" name="beaches-islands" value="0"> No Rating</label> -->
+                </div>
+            </div>
+            <div class="rating-item">
+                <div class="rating-label">Adventure and Nature</div>
+                <div class="rating-options">
+                    <label><input type="radio" name="adventure-nature" value="1"> 1</label>
+                    <label><input type="radio" name="adventure-nature" value="2"> 2</label>
+                    <label><input type="radio" name="adventure-nature" value="3"> 3</label>
+                    <label><input type="radio" name="adventure-nature" value="4"> 4</label>
+                    <label><input type="radio" name="adventure-nature" value="5"> 5</label>
+                    <!-- <label><input type="radio" name="adventure-nature" value="0"> No Rating</label> -->
+                </div>
+            </div>
+            <div class="rating-item">
+                <div class="rating-label">Religious Sites</div>
+                <div class="rating-options">
+                    <label><input type="radio" name="religious-sites" value="1"> 1</label>
+                    <label><input type="radio" name="religious-sites" value="2"> 2</label>
+                    <label><input type="radio" name="religious-sites" value="3"> 3</label>
+                    <label><input type="radio" name="religious-sites" value="4"> 4</label>
+                    <label><input type="radio" name="religious-sites" value="5"> 5</label>
+                    <!-- <label><input type="radio" name="religious-sites" value="0"> No Rating</label> -->
+                </div>
+            </div>
+            <div class="rating-item">
+                <div class="rating-label">Urban and Entertainment</div>
+                <div class="rating-options">
+                    <label><input type="radio" name="urban-entertainment" value="1"> 1</label>
+                    <label><input type="radio" name="urban-entertainment" value="2"> 2</label>
+                    <label><input type="radio" name="urban-entertainment" value="3"> 3</label>
+                    <label><input type="radio" name="urban-entertainment" value="4"> 4</label>
+                    <label><input type="radio" name="urban-entertainment" value="5"> 5</label>
+                    <!-- <label><input type="radio" name="urban-entertainment" value="0"> No Rating</label> -->
+                </div>
+            </div>
+            <div class="rating-item">
+                <div class="rating-label">Cultural and Local Experiences</div>
+                <div class="rating-options">
+                    <label><input type="radio" name="cultural-local" value="1"> 1</label>
+                    <label><input type="radio" name="cultural-local" value="2"> 2</label>
+                    <label><input type="radio" name="cultural-local" value="3"> 3</label>
+                    <label><input type="radio" name="cultural-local" value="4"> 4</label>
+                    <label><input type="radio" name="cultural-local" value="5"> 5</label>
+                    <!-- <label><input type="radio" name="cultural-local" value="0"> No Rating</label> -->
+                </div>
+            </div>
+            <button type="submit" class="rating-submit-button">Submit</button>
+            <button type="button" class="rating-clear-button" id="clear-button">Clear</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('rating-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const preferences = [
+                parseInt(document.querySelector('input[name="historical-sites"]:checked')?.value || 0),
+                parseInt(document.querySelector('input[name="beaches-islands"]:checked')?.value || 0),
+                parseInt(document.querySelector('input[name="adventure-nature"]:checked')?.value || 0),
+                parseInt(document.querySelector('input[name="religious-sites"]:checked')?.value || 0),
+                parseInt(document.querySelector('input[name="urban-entertainment"]:checked')?.value || 0),
+                parseInt(document.querySelector('input[name="cultural-local"]:checked')?.value || 0)
+            ];
+            localStorage.setItem('newUserPreferences', JSON.stringify(preferences));
+            window.location.href = 'dashboard.html';
+        });
+
+        document.getElementById('clear-button').addEventListener('click', function() {
+            document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
+        });
+    </script>
+</body>
+</html>

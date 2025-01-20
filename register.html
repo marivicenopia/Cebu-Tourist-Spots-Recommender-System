@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="register-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <title>Register</title>
+</head>
+<body>
+    <div class="register-container">
+        <form id="register-form">
+            <a href="homepage.html" class="back-link">&lt; Back to Homepage</a>
+            <div class="register-item">
+                <h1 class="register-title">Sign up</h1>
+                <label class="register-label" for="username">Username</label>
+                <input class="register-input" type="text" id="username" name="username" required>
+            </div>
+            <div class="register-item">
+                <label class="register-label" for="password">Password</label>
+                <div class="password-container">
+                    <input class="register-input" type="password" id="password" name="password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword()">Show</button>
+                </div>
+            </div>
+            <button class="register-button" type="submit">Register</button>
+            <button class="clear-button" type="button" id="clear-button">Clear</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            localStorage.setItem('newUser', JSON.stringify({ username }));
+            window.location.href = 'rating.html';
+        });
+
+        document.getElementById('clear-button').addEventListener('click', function() {
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggleButton = document.querySelector('.toggle-password');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleButton.textContent = 'Hide';
+            } else {
+                passwordField.type = 'password';
+                toggleButton.textContent = 'Show';
+            }
+        }
+    </script>
+</body>
+</html>

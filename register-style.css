@@ -1,0 +1,101 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: white; 
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.register-item {
+    margin: 15px 0;
+    position: relative; /* Added for positioning the toggle button */
+}
+
+.register-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #003049;
+}
+
+.register-input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.register-button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #D62828;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px;
+    width: 100%;
+}
+
+.register-button:hover {
+    background-color: #f75252;
+}
+
+.clear-button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px;
+    width: 100%;
+}
+
+.clear-button:hover {
+    background-color: #fcbf49;
+}
+
+.back-link {
+    font-size: 11px;
+}
+
+.register-title {
+    color: #003049 ; 
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+}
+
+.password-container .register-input {
+    flex: 1;
+}
+
+.toggle-password {
+    background-color: #fcbf49;
+    margin-left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: #003049;
+}
